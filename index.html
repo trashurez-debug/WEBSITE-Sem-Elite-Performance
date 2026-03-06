@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sem Elite Performance</title>
+  <meta
+    name="description"
+    content="Sem Elite Performance - High-end performance coaching for serious athletes."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-soft: #121212;
+      --bg-card: #1a1a1a;
+      --bg-card-2: #202020;
+      --line: #2f2f2f;
+      --line-soft: #232323;
+      --text: #ffffff;
+      --muted: #b5b5b5;
+      --muted-2: #8f8f8f;
+      --white-soft: #f2f2f2;
+      --max: 1240px;
+      --radius: 18px;
+      --radius-lg: 28px;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --transition: 250ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.06), transparent 20%),
+        radial-gradient(circle at bottom left, rgba(255,255,255,0.03), transparent 18%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--max));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 110px 0;
+      position: relative;
+    }
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 42px;
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--muted);
+      display: inline-block;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Oswald", sans-serif;
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      font-size: clamp(3.6rem, 8vw, 7rem);
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 4vw, 4.2rem);
+    }
+
+    h3 {
+      font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      color: var(--white-soft);
+      max-width: 680px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: 1px solid var(--line);
+      transition: transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #dcdcdc;
+      border-color: #dcdcdc;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+    }
+
+    .btn-secondary:hover {
+      background: #1a1a1a;
+      border-color: #4a4a4a;
+    }
+
+    .btn-full {
+      width: 100%;
+    }
+
+    /* NAV */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(10, 10, 10, 0.75);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 82px;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 0.95;
+    }
+
+    .logo-main {
+      font-family: "Oswald", sans-serif;
+      text-transform: uppercase;
+      font-size: 1.45rem;
+      letter-spacing: 0.06em;
+    }
+
+    .logo-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: #e8e8e8;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #141414;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: calc(100vh - 82px);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(0,0,0,0.88) 20%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.2) 100%),
+        url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      transform: scale(1.03);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, #0a0a0a 0%, rgba(10,10,10,0.15) 30%, rgba(10,10,10,0.1) 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      align-items: end;
+      padding: 70px 0 40px;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+    }
+
+    .hero-copy .eyebrow {
+      margin-bottom: 22px;
+    }
+
+    .hero-copy p {
+      margin-top: 22px;
+      font-size: 1.08rem;
+      max-width: 650px;
+      color: #d1d1d1;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      align-self: end;
+    }
+
+    .stat-card {
+      background: rgba(20, 20, 20, 0.82);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-value {
+      font-family: "Oswald", sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.03em;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.93rem;
+      margin-top: 6px;
+    }
+
+    /* TRUST BAR */
+    .trust-bar {
+      border-top: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
+      background: #0d0d0d;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      padding: 22px 0;
+    }
+
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 12px 6px;
+    }
+
+    .trust-item strong {
+      font-family: "Oswald", sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .trust-item span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* GRID / CARDS */
+    .grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .card {
+      background: linear-gradient(180deg, #1a1a1a, #131313);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), border-color var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #4a4a4a;
+    }
+
+    .card-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      border: 1px solid #3b3b3b;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .card p {
+      margin-top: 12px;
+    }
+
+    /* ABOUT */
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .about-image {
+      min-height: 580px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.05)),
+        url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      box-shadow: var(--shadow);
+    }
+
+    .about-content {
+      background: linear-gradient(180deg, #151515, #101010);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-points {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .point {
+      padding: 18px;
+      background: #181818;
+      border: 1px solid #2d2d2d;
+      border-radius: 16px;
+    }
+
+    .point strong {
+      font-family: "Oswald", sans-serif;
+      display: block;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    .point span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* ATHLETES / RESULTS */
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .results-panel {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      min-height: 540px;
+      position: relative;
+    }
+
+    .results-panel.image {
+      background:
+        linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)),
+        url('https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+
+    .results-content {
+      background: linear-gradient(180deg, #161616, #0f0f0f);
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .quote-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .quote-item {
+      padding: 20px;
+      border-radius: 16px;
+      background: #181818;
+      border: 1px solid #2d2d2d;
+    }
+
+    .quote-item p {
+      color: #eaeaea;
+      margin-bottom: 10px;
+    }
+
+    .quote-item span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .metric {
+      padding: 18px;
+      border-radius: 16px;
+      background: #181818;
+      border: 1px solid #2f2f2f;
+      text-align: center;
+    }
+
+    .metric strong {
+      font-family: "Oswald", sans-serif;
+      font-size: 1.7rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* COACHES */
+    .coach-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .coach-image {
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .coach-body {
+      padding: 26px;
+    }
+
+    .coach-role {
+      display: inline-block;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.76rem;
+      margin-top: 10px;
+    }
+
+    .coach-body p {
+      margin-top: 14px;
+    }
+
+    /* PROCESS */
+    .process-grid {
+      counter-reset: step;
+    }
+
+    .process-card {
+      position: relative;
+      padding-top: 72px;
+    }
+
+    .process-card::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      position: absolute;
+      top: 26px;
+      left: 28px;
+      font-family: "Oswald", sans-serif;
+      font-size: 1.2rem;
+      color: #fff;
+      opacity: 0.95;
+    }
+
+    /* CTA */
+    .cta-box {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      background: linear-gradient(180deg, #181818, #111111);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .cta-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .cta-list li {
+      list-style: none;
+      color: var(--muted);
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .cta-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .form-card {
+      background: #121212;
+      border: 1px solid #2d2d2d;
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid #343434;
+      background: #0d0d0d;
+      color: #fff;
+      border-radius: 14px;
+      padding: 14px 16px;
+      font: inherit;
+      outline: none;
+      transition: border-color var(--transition), background var(--transition);
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: #666;
+      background: #111;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 30px 0 50px;
+      border-top: 1px solid var(--line-soft);
+      background: #090909;
+    }
+
+    .footer-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MOBILE */
+    @media (max-width: 1080px) {
+      .hero-inner,
+      .about-wrap,
+      .results-grid,
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-inner {
+        padding: 100px 0 60px;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trust-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 24px, var(--max));
+      }
+
+      .section {
+        padding: 84px 0;
+      }
+
+      .nav-links,
+      .nav-actions .desktop-only {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-menu {
+        display: none;
+        padding: 0 0 18px;
+      }
+
+      .mobile-menu.open {
+        display: block;
+      }
+
+      .mobile-menu-inner {
+        display: grid;
+        gap: 10px;
+        padding-top: 12px;
+      }
+
+      .mobile-menu a {
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: #141414;
+      }
+
+      .hero-stats,
+      .grid-4,
+      .grid-3,
+      .grid-2,
+      .trust-row,
+      .metrics,
+      .about-points {
+        grid-template-columns: 1fr;
+      }
+
+      .about-content,
+      .results-content,
+      .cta-box,
+      .form-card {
+        padding: 24px;
+      }
+
+      .about-image,
+      .results-panel {
+        min-height: 380px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="#home" class="logo">
+          <span class="logo-main">Sem Elite</span>
+          <span class="logo-sub">Performance</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Programs</a>
+          <a href="#results">Results</a>
+          <a href="#coaches">Coaching</a>
+          <a href="#apply">Apply</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="nav-actions">
+          <a href="#apply" class="btn btn-primary desktop-only">Apply Now</a>
+          <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+        </div>
+      </nav>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-inner">
+          <a href="#about">About</a>
+          <a href="#services">Programs</a>
+          <a href="#results">Results</a>
+          <a href="#coaches">Coaching</a>
+          <a href="#apply">Apply</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-copy reveal">
+            <span class="eyebrow">Elite Development for Serious Athletes</span>
+            <h1>Train Elite.<br />Perform Beyond Limits.</h1>
+            <p>
+              Sem Elite Performance is built for athletes who want premium coaching,
+              measurable progress, and a high-performance environment focused on speed,
+              strength, resilience, and match-day impact.
+            </p>
+            <div class="btn-row">
+              <a href="#apply" class="btn btn-primary">Apply Now</a>
+              <a href="#services" class="btn btn-secondary">View Programs</a>
+            </div>
+          </div>
+
+          <div class="hero-stats reveal">
+            <div class="stat-card">
+              <div class="stat-value">1:1</div>
+              <div class="stat-label">Tailored performance coaching</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">360°</div>
+              <div class="stat-label">Speed, strength, recovery, mindset</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">Elite</div>
+              <div class="stat-label">Luxury environment. Serious standards.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-bar">
+      <div class="container">
+        <div class="trust-row reveal">
+          <div class="trust-item">
+            <strong>Performance Driven</strong>
+            <span>Structured coaching with clear progression</span>
+          </div>
+          <div class="trust-item">
+            <strong>High-End Experience</strong>
+            <span>Luxury visuals, clean delivery, serious focus</span>
+          </div>
+          <div class="trust-item">
+            <strong>Individual Approach</strong>
+            <span>Programs adjusted to the athlete, not the crowd</span>
+          </div>
+          <div class="trust-item">
+            <strong>Results Focused</strong>
+            <span>Built around measurable athletic improvement</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about-wrap">
+          <div class="about-image reveal"></div>
+
+          <div class="about-content reveal">
+            <span class="eyebrow">About the Brand</span>
+            <h2>Sem Elite Performance</h2>
+            <p class="lead">
+              Built with a luxury performance mindset, Sem Elite Performance helps
+              ambitious athletes develop the physical qualities required to compete
+              at a higher level.
+            </p>
+            <p>
+              The focus is simple: high-level preparation, disciplined execution,
+              and a premium system that combines training quality, athlete tracking,
+              and clear development structure.
+            </p>
+
+            <div class="about-points">
+              <div class="point">
+                <strong>Elite Identity</strong>
+                <span>Minimal, premium, serious, and performance-led.</span>
+              </div>
+              <div class="point">
+                <strong>Custom Programs</strong>
+                <span>Designed around goals, level, and performance profile.</span>
+              </div>
+              <div class="point">
+                <strong>Long-Term Growth</strong>
+                <span>Not random workouts. Structured development over time.</span>
+              </div>
+              <div class="point">
+                <strong>Measured Progress</strong>
+                <span>Built around visible and trackable performance gains.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Programs</span>
+          <h2>High-Performance Services</h2>
+          <p class="lead">
+            A refined coaching structure for athletes who want a professional,
+            high-end path to stronger physical performance.
+          </p>
+        </div>
+
+        <div class="grid grid-4">
+          <article class="card reveal">
+            <div class="card-icon">01</div>
+            <h3>Strength & Conditioning</h3>
+            <p>
+              Build force, robustness, movement quality, and athletic durability
+              with structured gym-based development.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">02</div>
+            <h3>Speed & Agility</h3>
+            <p>
+              Improve acceleration, change of direction, sprint mechanics, and
+              explosive movement under pressure.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">03</div>
+            <h3>Football Performance</h3>
+            <p>
+              Performance support for footballers who want better physical output,
+              sharper athletic readiness, and match-level intensity.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">04</div>
+            <h3>Recovery & Resilience</h3>
+            <p>
+              Reduce setbacks, support return-to-play phases, and improve recovery
+              habits that sustain elite output.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">05</div>
+            <h3>Youth Development</h3>
+            <p>
+              Age-appropriate development for ambitious young athletes building
+              strong physical foundations early.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">06</div>
+            <h3>1-on-1 Coaching</h3>
+            <p>
+              A private, premium experience focused on personalized planning,
+              athlete feedback, and close coaching attention.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">07</div>
+            <h3>Assessment & Profiling</h3>
+            <p>
+              Start with performance analysis to identify weak points, physical
+              priorities, and the clearest development path.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">08</div>
+            <h3>Elite Preparation</h3>
+            <p>
+              Pre-season, off-season, and performance blocks designed for serious
+              athletes preparing for competition demands.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Results</span>
+          <h2>Built for Visible Progress</h2>
+          <p class="lead">
+            Your website should not just look elite. It should communicate trust,
+            outcomes, and the level of athlete you want to attract.
+          </p>
+        </div>
+
+        <div class="results-grid">
+          <div class="results-panel image reveal"></div>
+
+          <div class="results-panel results-content reveal">
+            <div>
+              <h3>Athlete Results & Testimonials</h3>
+              <p>
+                Use this section to highlight athlete stories, development wins,
+                performance increases, and transformation proof.
+              </p>
+
+              <div class="quote-list">
+                <div class="quote-item">
+                  <p>
+                    “The sessions are intense, structured, and professional. I felt
+                    more explosive, stronger, and physically sharper.”
+                  </p>
+                  <span>— Example Athlete Testimonial</span>
+                </div>
+
+                <div class="quote-item">
+                  <p>
+                    “This is not basic training. The whole environment feels elite
+                    and every session has a clear purpose.”
+                  </p>
+                  <span>— Example Athlete Testimonial</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="metrics">
+              <div class="metric">
+                <strong>+18%</strong>
+                <span>Acceleration Output</span>
+              </div>
+              <div class="metric">
+                <strong>+24%</strong>
+                <span>Strength Progress</span>
+              </div>
+              <div class="metric">
+                <strong>+100%</strong>
+                <span>Commitment Standard</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="coaches">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Coaching Team</span>
+          <h2>Premium Coaching Presence</h2>
+          <p class="lead">
+            Use this area to present yourself or your staff with a strong,
+            trustworthy, high-level brand image.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card coach-card reveal">
+            <div
+              class="coach-image"
+              style="background-image:url('https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=900&q=80');"
+            ></div>
+            <div class="coach-body">
+              <h3>Sem</h3>
+              <span class="coach-role">Founder / Performance Coach</span>
+              <p>
+                Insert your story here. Explain your philosophy, your training
+                standards, and why athletes should trust your system.
+              </p>
+            </div>
+          </article>
+
+          <article class="card coach-card reveal">
+            <div
+              class="coach-image"
+              style="background-image:url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=900&q=80');"
+            ></div>
+            <div class="coach-body">
+              <h3>Speed Specialist</h3>
+              <span class="coach-role">Acceleration / Agility</span>
+              <p>
+                Add a second coach or specialist here to create more authority and
+                expand the premium team feel of the brand.
+              </p>
+            </div>
+          </article>
+
+          <article class="card coach-card reveal">
+            <div
+              class="coach-image"
+              style="background-image:url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=900&q=80');"
+            ></div>
+            <div class="coach-body">
+              <h3>Recovery Lead</h3>
+              <span class="coach-role">Mobility / Recovery</span>
+              <p>
+                Add expertise around injury prevention, mobility, and recovery to
+                strengthen the complete performance ecosystem.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">How It Works</span>
+          <h2>A Cleaner Conversion Flow</h2>
+          <p class="lead">
+            This structure makes the site feel premium while also guiding visitors
+            toward an inquiry or application.
+          </p>
+        </div>
+
+        <div class="grid grid-4 process-grid">
+          <article class="card process-card reveal">
+            <h3>Apply</h3>
+            <p>
+              The athlete submits details, goals, level, and preferred coaching
+              direction.
+            </p>
+          </article>
+
+          <article class="card process-card reveal">
+            <h3>Assess</h3>
+            <p>
+              You review their profile, current level, and performance needs.
+            </p>
+          </article>
+
+          <article class="card process-card reveal">
+            <h3>Build</h3>
+            <p>
+              A tailored plan is created around speed, power, resilience, and
+              progression.
+            </p>
+          </article>
+
+          <article class="card process-card reveal">
+            <h3>Perform</h3>
+            <p>
+              The athlete trains inside a structured system with clear tracking and
+              high standards.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="apply">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div class="cta-info">
+            <span class="eyebrow">Apply Now</span>
+            <h2>Join Sem Elite Performance</h2>
+            <p class="lead">
+              For athletes who want more than a standard gym experience. This is a
+              premium performance environment designed for serious growth.
+            </p>
+
+            <ul class="cta-list">
+              <li>1-on-1 or tailored athlete pathway</li>
+              <li>Luxury black-and-white performance branding</li>
+              <li>Focused on results, not random sessions</li>
+              <li>Ideal for footballers and ambitious athletes</li>
+            </ul>
+          </div>
+
+          <div class="form-card">
+            <form class="form-grid">
+              <div class="field">
+                <label for="name">Naam</label>
+                <input id="name" type="text" placeholder="Jouw naam" />
+              </div>
+
+              <div class="field">
+                <label for="email">E-mail</label>
+                <input id="email" type="email" placeholder="jij@email.com" />
+              </div>
+
+              <div class="field">
+                <label for="sport">Sport / Focus</label>
+                <select id="sport">
+                  <option>Football</option>
+                  <option>Speed Training</option>
+                  <option>Strength & Conditioning</option>
+                  <option>Youth Development</option>
+                  <option>Recovery / Return to Play</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="message">Doelstelling</label>
+                <textarea
+                  id="message"
+                  placeholder="Vertel kort wat je doel is, waar je nu staat en wat je wilt verbeteren."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full">
+                Send Application
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-wrap">
+        <div>
+          <div class="logo">
+            <span class="logo-main">Sem Elite</span>
+            <span class="logo-sub">Performance</span>
+          </div>
+          <p class="footer-copy" style="margin-top: 12px;">
+            High-end performance coaching for serious athletes.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="mailto:info@semeliteperformance.com">info@semeliteperformance.com</a>
+          <a href="tel:+310612345678">+31 06 12345678</a>
+          <a href="#home">Back to top</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+    });
+
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+
+    const reveals = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+
+    reveals.forEach((item) => revealObserver.observe(item));
+  </script>
+</body>
+</html>
