@@ -3,1345 +3,893 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sem Elite Performance</title>
-  <meta
-    name="description"
-    content="Sem Elite Performance - hoogwaardige performance coaching voor serieuze atleten."
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <title>SEM Elite Performance — Website Analyse</title>
   <style>
     :root {
-      --bg: #0a0a0a;
-      --bg-soft: #121212;
-      --bg-card: #1a1a1a;
-      --bg-card-2: #202020;
-      --line: #2f2f2f;
-      --line-soft: #232323;
-      --text: #ffffff;
-      --muted: #b5b5b5;
-      --muted-2: #8f8f8f;
-      --white-soft: #f2f2f2;
-      --max: 1240px;
-      --radius: 18px;
-      --radius-lg: 28px;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-      --transition: 250ms ease;
+      --bg: #050505;
+      --panel: #0f0f10;
+      --panel-2: #151516;
+      --text: #f3f3f3;
+      --muted: #b9b9b9;
+      --line: rgba(255,255,255,0.08);
+      --accent: #ffffff;
+      --soft: rgba(255,255,255,0.06);
+      --shadow: 0 20px 50px rgba(0,0,0,0.45);
+      --radius: 22px;
+      --max: 1180px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: "Inter", sans-serif;
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.06), transparent 20%),
-        radial-gradient(circle at bottom left, rgba(255,255,255,0.03), transparent 18%),
-        var(--bg);
+        radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 30%),
+        linear-gradient(180deg, #060606 0%, #040404 100%);
       color: var(--text);
-      line-height: 1.5;
-      overflow-x: hidden;
+      line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
     .container {
-      width: min(100% - 40px, var(--max));
-      margin-inline: auto;
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
     }
 
-    .section {
-      padding: 110px 0;
-      position: relative;
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(5,5,5,0.7);
+      border-bottom: 1px solid var(--line);
     }
 
-    .section-header {
+    .nav-inner {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 78px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.88rem;
+    }
+
+    .brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #000;
+      padding: 4px;
+      border: 1px solid var(--line);
+    }
+
+    .nav-links {
+      display: flex;
       gap: 18px;
-      margin-bottom: 42px;
-      max-width: 760px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto;
+      border-radius: 999px;
+      filter: blur(70px);
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 360px;
+      height: 360px;
+      background: #fff;
+      top: -120px;
+      right: -80px;
+    }
+
+    .hero::after {
+      width: 280px;
+      height: 280px;
+      background: #fff;
+      bottom: -120px;
+      left: -60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 28px;
+      align-items: center;
+      min-height: calc(100vh - 79px);
+      padding: 56px 0 64px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
       color: var(--muted);
+      background: rgba(255,255,255,0.03);
       font-size: 0.84rem;
-      letter-spacing: 0.18em;
       text-transform: uppercase;
+      letter-spacing: 0.15em;
     }
 
-    .eyebrow::before {
-      content: "";
-      width: 28px;
-      height: 1px;
-      background: var(--muted);
-      display: inline-block;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: "Oswald", sans-serif;
-      text-transform: uppercase;
-      line-height: 0.95;
-      letter-spacing: 0.02em;
-    }
+    h1, h2, h3, h4, p { margin-top: 0; }
 
     h1 {
-      font-size: clamp(3.6rem, 8vw, 7rem);
+      font-size: clamp(2.8rem, 7vw, 6rem);
+      line-height: 0.96;
+      margin: 18px 0 22px;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
     }
 
-    h2 {
-      font-size: clamp(2.2rem, 4vw, 4.2rem);
-    }
-
-    h3 {
-      font-size: clamp(1.2rem, 2.2vw, 1.8rem);
-    }
-
-    p {
+    .hero p {
+      max-width: 760px;
       color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .lead {
       font-size: 1.08rem;
-      color: var(--white-soft);
-      max-width: 680px;
     }
 
-    .muted {
-      color: var(--muted);
-    }
-
-    .btn-row {
+    .hero-actions {
       display: flex;
-      flex-wrap: wrap;
       gap: 14px;
-      margin-top: 10px;
+      flex-wrap: wrap;
+      margin-top: 28px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 52px;
-      padding: 0 22px;
+      min-height: 48px;
+      padding: 0 18px;
       border-radius: 999px;
-      font-weight: 700;
-      font-size: 0.95rem;
       border: 1px solid var(--line);
-      transition: transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
-      cursor: pointer;
+      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+      font-weight: 700;
+      letter-spacing: 0.03em;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary {
       background: #fff;
       color: #000;
       border-color: #fff;
     }
-
-    .btn-primary:hover {
-      background: #dcdcdc;
-      border-color: #dcdcdc;
+    .btn.secondary {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
     }
 
-    .btn-secondary {
-      background: transparent;
-      color: #fff;
-    }
-
-    .btn-secondary:hover {
-      background: #1a1a1a;
-      border-color: #4a4a4a;
-    }
-
-    .btn-full {
-      width: 100%;
-    }
-
-    /* NAVIGATIE */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(14px);
-      background: rgba(10, 10, 10, 0.75);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 82px;
-      gap: 20px;
-    }
-
-    .logo {
-      display: flex;
-      flex-direction: column;
-      line-height: 0.95;
-    }
-
-    .logo-main {
-      font-family: "Oswald", sans-serif;
-      text-transform: uppercase;
-      font-size: 1.45rem;
-      letter-spacing: 0.06em;
-    }
-
-    .logo-sub {
-      font-size: 0.7rem;
-      color: var(--muted);
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .nav-links a {
-      color: #e8e8e8;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: color var(--transition);
-    }
-
-    .nav-links a:hover {
-      color: #fff;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .menu-toggle {
-      display: none;
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
+    .hero-card,
+    .card,
+    .score-card,
+    .effect-item,
+    .timeline-item {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
       border: 1px solid var(--line);
-      background: #141414;
-      color: #fff;
-      cursor: pointer;
-      font-size: 1.2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
 
-    /* HERO */
-    .hero {
-      min-height: calc(100vh - 82px);
-      display: flex;
-      align-items: center;
+    .hero-card {
+      padding: 22px;
       position: relative;
       overflow: hidden;
     }
 
-    .hero::before {
+    .hero-card::before {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(to right, rgba(0,0,0,0.88) 20%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.2) 100%),
-        url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      transform: scale(1.03);
+      background: linear-gradient(135deg, rgba(255,255,255,0.14), transparent 50%);
+      pointer-events: none;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to top, #0a0a0a 0%, rgba(10,10,10,0.15) 30%, rgba(10,10,10,0.1) 100%);
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 30px;
-      align-items: end;
-      padding: 70px 0 40px;
-    }
-
-    .hero-copy {
-      max-width: 760px;
-    }
-
-    .hero-copy .eyebrow {
-      margin-bottom: 22px;
-    }
-
-    .hero-copy p {
-      margin-top: 22px;
-      font-size: 1.08rem;
-      max-width: 650px;
-      color: #d1d1d1;
+    .hero-card img {
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #000;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      padding: 18px;
     }
 
     .hero-stats {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      align-self: end;
-    }
-
-    .stat-card {
-      background: rgba(20, 20, 20, 0.82);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .stat-value {
-      font-family: "Oswald", sans-serif;
-      font-size: 2rem;
-      letter-spacing: 0.03em;
-    }
-
-    .stat-label {
-      color: var(--muted);
-      font-size: 0.93rem;
-      margin-top: 6px;
-    }
-
-    /* VERTROUWENSBALK */
-    .trust-bar {
-      border-top: 1px solid var(--line-soft);
-      border-bottom: 1px solid var(--line-soft);
-      background: #0d0d0d;
-    }
-
-    .trust-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      padding: 22px 0;
-    }
-
-    .trust-item {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      padding: 12px 6px;
-    }
-
-    .trust-item strong {
-      font-family: "Oswald", sans-serif;
-      font-size: 1.05rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .trust-item span {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    /* GRID / KAARTEN */
-    .grid {
-      display: grid;
-      gap: 22px;
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .grid-3 {
       grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
     }
 
-    .grid-4 {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .card {
-      background: linear-gradient(180deg, #1a1a1a, #131313);
+    .mini-stat {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
       border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
-      transition: transform var(--transition), border-color var(--transition);
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: #4a4a4a;
-    }
-
-    .card-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 14px;
-      border: 1px solid #3b3b3b;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-      color: #fff;
-      font-weight: 800;
-    }
-
-    .card p {
-      margin-top: 12px;
-    }
-
-    /* OVER ONS */
-    .about-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1.05fr;
-      gap: 30px;
-      align-items: stretch;
-    }
-
-    .about-image {
-      min-height: 580px;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background:
-        linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.05)),
-        url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-      box-shadow: var(--shadow);
-    }
-
-    .about-content {
-      background: linear-gradient(180deg, #151515, #101010);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 40px;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .about-points {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      margin-top: 26px;
-    }
-
-    .point {
-      padding: 18px;
-      background: #181818;
-      border: 1px solid #2d2d2d;
-      border-radius: 16px;
-    }
-
-    .point strong {
-      font-family: "Oswald", sans-serif;
+    .mini-stat strong {
       display: block;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-      letter-spacing: 0.04em;
-    }
-
-    .point span {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    /* ATLETEN / RESULTATEN */
-    .results-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .results-panel {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      min-height: 540px;
-      position: relative;
-    }
-
-    .results-panel.image {
-      background:
-        linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)),
-        url('https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-    }
-
-    .results-content {
-      background: linear-gradient(180deg, #161616, #0f0f0f);
-      padding: 34px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .quote-list {
-      display: grid;
-      gap: 18px;
-      margin-top: 22px;
-    }
-
-    .quote-item {
-      padding: 20px;
-      border-radius: 16px;
-      background: #181818;
-      border: 1px solid #2d2d2d;
-    }
-
-    .quote-item p {
-      color: #eaeaea;
-      margin-bottom: 10px;
-    }
-
-    .quote-item span {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 26px;
-    }
-
-    .metric {
-      padding: 18px;
-      border-radius: 16px;
-      background: #181818;
-      border: 1px solid #2f2f2f;
-      text-align: center;
-    }
-
-    .metric strong {
-      font-family: "Oswald", sans-serif;
-      font-size: 1.7rem;
-      display: block;
+      font-size: 1.2rem;
       margin-bottom: 4px;
     }
 
-    .metric span {
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    /* COACHES */
-    .coach-card {
-      overflow: hidden;
-      padding: 0;
-    }
-
-    .coach-image {
-      height: 300px;
-      background-size: cover;
-      background-position: center;
+    section {
+      padding: 84px 0;
       border-bottom: 1px solid var(--line);
     }
 
-    .coach-body {
-      padding: 26px;
-    }
-
-    .coach-role {
-      display: inline-block;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.76rem;
-      margin-top: 10px;
-    }
-
-    .coach-body p {
-      margin-top: 14px;
-    }
-
-    /* PROCES */
-    .process-grid {
-      counter-reset: step;
-    }
-
-    .process-card {
-      position: relative;
-      padding-top: 72px;
-    }
-
-    .process-card::before {
-      counter-increment: step;
-      content: "0" counter(step);
-      position: absolute;
-      top: 26px;
-      left: 28px;
-      font-family: "Oswald", sans-serif;
-      font-size: 1.2rem;
-      color: #fff;
-      opacity: 0.95;
-    }
-
-    /* CTA */
-    .cta-box {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
-      background: linear-gradient(180deg, #181818, #111111);
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      padding: 34px;
-      box-shadow: var(--shadow);
-    }
-
-    .cta-info {
+    .section-head {
       display: flex;
-      flex-direction: column;
-      gap: 16px;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 28px;
     }
 
-    .cta-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 6px;
+    .section-head h2 {
+      font-size: clamp(1.7rem, 3vw, 3rem);
+      line-height: 1;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
     }
 
-    .cta-list li {
-      list-style: none;
+    .section-head p,
+    .muted {
       color: var(--muted);
-      padding-left: 18px;
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      padding: 24px;
       position: relative;
     }
 
-    .cta-list li::before {
+    .card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .kicker {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .list li::before {
       content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #fff;
       position: absolute;
       left: 0;
-      top: 0.65em;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
+      top: 0.62em;
+      transform: translateY(-50%);
+    }
+
+    .effect-item {
+      padding: 20px;
+      min-height: 220px;
+    }
+
+    .effect-item h4 {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .effect-tag {
+      display: inline-flex;
+      padding: 5px 9px;
+      border-radius: 999px;
+      margin-bottom: 14px;
       background: #fff;
+      color: #000;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
     }
 
-    .form-card {
-      background: #121212;
-      border: 1px solid #2d2d2d;
-      border-radius: 24px;
-      padding: 24px;
-    }
-
-    .form-grid {
+    .timeline {
       display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .timeline-item .step {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding-top: 3px;
+    }
+
+    .scores {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 14px;
     }
 
-    .field label {
+    .score-card {
+      padding: 18px;
+      text-align: center;
+    }
+
+    .score-card strong {
       display: block;
-      font-size: 0.86rem;
-      color: var(--muted);
+      font-size: 2rem;
+      line-height: 1;
       margin-bottom: 8px;
     }
 
-    .field input,
-    .field select,
-    .field textarea {
-      width: 100%;
-      border: 1px solid #343434;
-      background: #0d0d0d;
-      color: #fff;
-      border-radius: 14px;
-      padding: 14px 16px;
-      font: inherit;
-      outline: none;
-      transition: border-color var(--transition), background var(--transition);
+    .quote {
+      padding: 28px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      font-size: clamp(1.15rem, 2vw, 1.6rem);
+      line-height: 1.4;
+      box-shadow: var(--shadow);
     }
 
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus {
-      border-color: #666;
-      background: #111;
+    .quote small {
+      display: block;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    textarea {
-      min-height: 120px;
-      resize: vertical;
+    .footer {
+      padding: 34px 0 56px;
+      color: var(--muted);
     }
 
-    /* FOOTER */
-    footer {
-      padding: 30px 0 50px;
-      border-top: 1px solid var(--line-soft);
-      background: #090909;
-    }
-
-    .footer-wrap {
+    .footer-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
-    .footer-copy {
-      color: var(--muted);
-      font-size: 0.92rem;
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--line);
+      margin: 10px 0 0;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: var(--muted);
-    }
-
-    .footer-links a:hover {
-      color: #fff;
-    }
-
-    /* VERSCHIJN-ANIMATIE */
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 700ms ease, transform 700ms ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* MOBIEL */
     @media (max-width: 1080px) {
-      .hero-inner,
-      .about-wrap,
-      .results-grid,
-      .cta-box {
-        grid-template-columns: 1fr;
+      .hero-grid,
+      .grid-3,
+      .grid-4,
+      .scores,
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
       }
 
-      .hero {
+      .hero-grid {
         min-height: auto;
-      }
-
-      .hero-inner {
-        padding: 100px 0 60px;
-      }
-
-      .hero-stats {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .grid-4 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .grid-3 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .trust-row {
-        grid-template-columns: repeat(2, 1fr);
+        padding-top: 42px;
       }
     }
 
-    @media (max-width: 760px) {
-      .container {
-        width: min(100% - 24px, var(--max));
-      }
-
-      .section {
-        padding: 84px 0;
-      }
-
-      .nav-links,
-      .nav-actions .desktop-only {
-        display: none;
-      }
-
-      .menu-toggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .mobile-menu {
-        display: none;
-        padding: 0 0 18px;
-      }
-
-      .mobile-menu.open {
-        display: block;
-      }
-
-      .mobile-menu-inner {
-        display: grid;
-        gap: 10px;
-        padding-top: 12px;
-      }
-
-      .mobile-menu a {
-        padding: 14px 16px;
-        border-radius: 14px;
-        border: 1px solid var(--line);
-        background: #141414;
-      }
-
+    @media (max-width: 780px) {
+      .nav-inner,
+      .section-head,
+      .footer-inner,
+      .timeline-item,
+      .hero-grid,
       .hero-stats,
-      .grid-4,
-      .grid-3,
       .grid-2,
-      .trust-row,
-      .metrics,
-      .about-points {
+      .grid-3,
+      .grid-4,
+      .scores {
         grid-template-columns: 1fr;
+        display: grid;
       }
 
-      .about-content,
-      .results-content,
-      .cta-box,
-      .form-card {
-        padding: 24px;
+      .nav-inner,
+      .footer-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      .about-image,
-      .results-panel {
-        min-height: 380px;
+      .timeline-item {
+        gap: 10px;
+      }
+
+      .timeline-item .step {
+        padding-top: 0;
+      }
+
+      section {
+        padding: 66px 0;
+      }
+
+      h1 {
+        font-size: clamp(2.3rem, 11vw, 4rem);
       }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <nav class="nav">
-        <a href="#home" class="logo">
-          <span class="logo-main">Sem Elite</span>
-          <span class="logo-sub">Performance</span>
-        </a>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <img src="/mnt/data/logo.jpg" alt="SEM Elite Performance logo" />
+        <span>SEM Elite Performance</span>
+      </a>
+      <div class="nav-links">
+        <a href="#samenvatting" class="active">Samenvatting</a>
+        <a href="#secties">Secties</a>
+        <a href="#effecten">Effecten</a>
+        <a href="#sterktes">Sterktes</a>
+        <a href="#zwaktes">Zwaktes</a>
+        <a href="#advies">Advies</a>
+      </div>
+    </div>
+  </nav>
 
-        <div class="nav-links">
-          <a href="#about">Over ons</a>
-          <a href="#services">Programma's</a>
-          <a href="#results">Resultaten</a>
-          <a href="#coaches">Coaching</a>
-          <a href="#apply">Aanmelden</a>
-          <a href="#contact">Contact</a>
-        </div>
-
-        <div class="nav-actions">
-          <a href="#apply" class="btn btn-primary desktop-only">Nu aanmelden</a>
-          <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
-        </div>
-      </nav>
-
-      <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-inner">
-          <a href="#about">Over ons</a>
-          <a href="#services">Programma's</a>
-          <a href="#results">Resultaten</a>
-          <a href="#coaches">Coaching</a>
-          <a href="#apply">Aanmelden</a>
-          <a href="#contact">Contact</a>
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Website Audit • Premium Performance Theme</span>
+        <h1>SPS Performance<br>Diepgaande Analyse</h1>
+        <p>
+          Deze HTML-pagina vertaalt de volledige audit naar een stijl die past bij <strong>SEM Elite Performance</strong>: strak, donker,
+          high-end en prestatiegericht. De inhoud is opgebouwd rond positionering, secties, effecten, UX-kwaliteit,
+          conversie en concrete verbeterkansen.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#samenvatting">Bekijk Analyse</a>
+          <a class="btn secondary" href="#advies">Direct naar Advies</a>
         </div>
       </div>
+      <aside class="hero-card">
+        <img src="/mnt/data/logo.jpg" alt="SEM Elite Performance visual" />
+        <div class="hero-stats">
+          <div class="mini-stat">
+            <strong>Premium</strong>
+            <span class="muted">High-performance uitstraling</span>
+          </div>
+          <div class="mini-stat">
+            <strong>Elite</strong>
+            <span class="muted">Sterke social proof en status</span>
+          </div>
+          <div class="mini-stat">
+            <strong>UX+</strong>
+            <span class="muted">Goed fundament, polish mist</span>
+          </div>
+        </div>
+      </aside>
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container">
-        <div class="hero-inner">
-          <div class="hero-copy reveal">
-            <span class="eyebrow">Elite ontwikkeling voor serieuze atleten</span>
-            <h1>Train als de top.<br />Presteer voorbij je grenzen.</h1>
-            <p>
-              Sem Elite Performance is gebouwd voor atleten die premium coaching,
-              meetbare vooruitgang en een high-performance omgeving willen die gericht is op snelheid,
-              kracht, veerkracht en impact op wedstrijddagen.
-            </p>
-            <div class="btn-row">
-              <a href="#apply" class="btn btn-primary">Nu aanmelden</a>
-              <a href="#services" class="btn btn-secondary">Bekijk programma's</a>
-            </div>
-          </div>
-
-          <div class="hero-stats reveal">
-            <div class="stat-card">
-              <div class="stat-value">1:1</div>
-              <div class="stat-label">Persoonlijke performance coaching</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value">360°</div>
-              <div class="stat-label">Snelheid, kracht, herstel, mindset</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value">Elite</div>
-              <div class="stat-label">Luxe omgeving. Serieuze standaarden.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="trust-bar">
-      <div class="container">
-        <div class="trust-row reveal">
-          <div class="trust-item">
-            <strong>Prestatiegericht</strong>
-            <span>Gestructureerde coaching met duidelijke opbouw</span>
-          </div>
-          <div class="trust-item">
-            <strong>Hoogwaardige ervaring</strong>
-            <span>Luxe uitstraling, strakke uitvoering, serieuze focus</span>
-          </div>
-          <div class="trust-item">
-            <strong>Individuele aanpak</strong>
-            <span>Programma's afgestemd op de atleet, niet op de massa</span>
-          </div>
-          <div class="trust-item">
-            <strong>Resultaatgericht</strong>
-            <span>Gebouwd rond meetbare sportieve vooruitgang</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="container">
-        <div class="about-wrap">
-          <div class="about-image reveal"></div>
-
-          <div class="about-content reveal">
-            <span class="eyebrow">Over het merk</span>
-            <h2>Sem Elite Performance</h2>
-            <p class="lead">
-              Opgebouwd vanuit een luxe performance-mentaliteit helpt Sem Elite Performance
-              ambitieuze atleten om de fysieke kwaliteiten te ontwikkelen die nodig zijn om
-              op een hoger niveau te presteren.
-            </p>
-            <p>
-              De focus is simpel: voorbereiding op hoog niveau, gedisciplineerde uitvoering
-              en een premium systeem dat trainingskwaliteit, atleetmonitoring
-              en een duidelijke ontwikkelstructuur combineert.
-            </p>
-
-            <div class="about-points">
-              <div class="point">
-                <strong>Elite identiteit</strong>
-                <span>Minimalistisch, premium, serieus en prestatiegedreven.</span>
-              </div>
-              <div class="point">
-                <strong>Programma op maat</strong>
-                <span>Ontworpen rond doelen, niveau en prestatieprofiel.</span>
-              </div>
-              <div class="point">
-                <strong>Groei op lange termijn</strong>
-                <span>Geen willekeurige workouts. Gestructureerde ontwikkeling in de tijd.</span>
-              </div>
-              <div class="point">
-                <strong>Meetbare vooruitgang</strong>
-                <span>Gebouwd rond zichtbare en meetbare prestatieverbetering.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="eyebrow">Programma's</span>
-          <h2>High-performance diensten</h2>
-          <p class="lead">
-            Een verfijnde coachingsstructuur voor atleten die een professioneel
-            en hoogwaardig traject willen naar sterkere fysieke prestaties.
-          </p>
-        </div>
-
-        <div class="grid grid-4">
-          <article class="card reveal">
-            <div class="card-icon">01</div>
-            <h3>Kracht & conditie</h3>
-            <p>
-              Bouw kracht, belastbaarheid, bewegingskwaliteit en sportieve duurzaamheid
-              op met gestructureerde ontwikkeling in de gym.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-icon">02</div>
-            <h3>Snelheid & wendbaarheid</h3>
-            <p>
-              Verbeter acceleratie, richtingsverandering, sprinttechniek en
-              explosieve beweging onder druk.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-icon">03</div>
-            <h3>Voetbalperformance</h3>
-            <p>
-              Performance support voor voetballers die een betere fysieke output,
-              scherpere sportieve paraatheid en wedstrijdintensiteit willen.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-icon">04</div>
-            <h3>Herstel & veerkracht</h3>
-            <p>
-              Verminder terugval, ondersteun return-to-play fases en verbeter
-              herstelgewoonten die prestaties op elite-niveau ondersteunen.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-icon">05</div>
-            <h3>Jeugdontwikkeling</h3>
-            <p>
-              Leeftijdsgerichte ontwikkeling voor ambitieuze jonge atleten die
-              vroeg een sterke fysieke basis willen opbouwen.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-icon">06</div>
-            <h3>1-op-1 coaching</h3>
-            <p>
-              Een private, premium ervaring met focus op persoonlijke planning,
-              feedback voor de atleet en intensieve coaching.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-icon">07</div>
-            <h3>Analyse & profiling</h3>
-            <p>
-              Start met een performance-analyse om zwakke punten, fysieke
-              prioriteiten en het duidelijkste ontwikkelpad te bepalen.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-icon">08</div>
-            <h3>Elite voorbereiding</h3>
-            <p>
-              Voorseizoen-, tussenseizoen- en performanceblokken ontworpen voor serieuze
-              atleten die zich voorbereiden op wedstrijdvereisten.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="results">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="eyebrow">Resultaten</span>
-          <h2>Gebouwd voor zichtbare vooruitgang</h2>
-          <p class="lead">
-            Je website moet er niet alleen elite uitzien. Hij moet vertrouwen,
-            resultaten en het niveau van atleten dat je wilt aantrekken uitstralen.
-          </p>
-        </div>
-
-        <div class="results-grid">
-          <div class="results-panel image reveal"></div>
-
-          <div class="results-panel results-content reveal">
-            <div>
-              <h3>Atleetresultaten & testimonials</h3>
-              <p>
-                Gebruik deze sectie om verhalen van atleten, ontwikkelsuccessen,
-                prestatieverbeteringen en transformatiebewijs uit te lichten.
-              </p>
-
-              <div class="quote-list">
-                <div class="quote-item">
-                  <p>
-                    “De sessies zijn intens, gestructureerd en professioneel. Ik voelde
-                    me explosiever, sterker en fysiek scherper.”
-                  </p>
-                  <span>— Voorbeeld testimonial van een atleet</span>
-                </div>
-
-                <div class="quote-item">
-                  <p>
-                    “Dit is geen standaard training. De hele omgeving voelt elite
-                    aan en elke sessie heeft een duidelijk doel.”
-                  </p>
-                  <span>— Voorbeeld testimonial van een atleet</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="metrics">
-              <div class="metric">
-                <strong>+18%</strong>
-                <span>Acceleratie-output</span>
-              </div>
-              <div class="metric">
-                <strong>+24%</strong>
-                <span>Krachttoename</span>
-              </div>
-              <div class="metric">
-                <strong>+100%</strong>
-                <span>Toewijdingsniveau</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="coaches">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="eyebrow">Coachingteam</span>
-          <h2>Een premium coaching-uitstraling</h2>
-          <p class="lead">
-            Gebruik deze ruimte om jezelf of je team te presenteren met een sterke,
-            betrouwbare en hoogwaardige merkuitstraling.
-          </p>
-        </div>
-
-        <div class="grid grid-3">
-          <article class="card coach-card reveal">
-            <div
-              class="coach-image"
-              style="background-image:url('https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=900&q=80');"
-            ></div>
-            <div class="coach-body">
-              <h3>Sem</h3>
-              <span class="coach-role">Oprichter / Performance coach</span>
-              <p>
-                Plaats hier jouw verhaal. Leg je filosofie, trainingsstandaarden
-                en waarom atleten jouw systeem moeten vertrouwen uit.
-              </p>
-            </div>
-          </article>
-
-          <article class="card coach-card reveal">
-            <div
-              class="coach-image"
-              style="background-image:url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=900&q=80');"
-            ></div>
-            <div class="coach-body">
-              <h3>Snelheidsspecialist</h3>
-              <span class="coach-role">Acceleratie / Wendbaarheid</span>
-              <p>
-                Voeg hier een tweede coach of specialist toe om meer autoriteit te creëren
-                en het premium teamgevoel van het merk te versterken.
-              </p>
-            </div>
-          </article>
-
-          <article class="card coach-card reveal">
-            <div
-              class="coach-image"
-              style="background-image:url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=900&q=80');"
-            ></div>
-            <div class="coach-body">
-              <h3>Herstelcoördinator</h3>
-              <span class="coach-role">Mobiliteit / Herstel</span>
-              <p>
-                Voeg expertise toe rond blessurepreventie, mobiliteit en herstel om
-                het complete performance-ecosysteem te versterken.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="eyebrow">Hoe het werkt</span>
-          <h2>Een schonere conversieflow</h2>
-          <p class="lead">
-            Deze structuur laat de site premium aanvoelen en begeleidt bezoekers
-            tegelijk richting een aanvraag of aanmelding.
-          </p>
-        </div>
-
-        <div class="grid grid-4 process-grid">
-          <article class="card process-card reveal">
-            <h3>Aanmelden</h3>
-            <p>
-              De atleet dient gegevens, doelen, niveau en gewenste coachingsrichting in.
-            </p>
-          </article>
-
-          <article class="card process-card reveal">
-            <h3>Beoordelen</h3>
-            <p>
-              Jij bekijkt hun profiel, huidige niveau en performancebehoeften.
-            </p>
-          </article>
-
-          <article class="card process-card reveal">
-            <h3>Opbouwen</h3>
-            <p>
-              Er wordt een plan op maat gemaakt rond snelheid, power, veerkracht en
-              progressie.
-            </p>
-          </article>
-
-          <article class="card process-card reveal">
-            <h3>Presteren</h3>
-            <p>
-              De atleet traint binnen een gestructureerd systeem met duidelijke monitoring
-              en hoge standaarden.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="apply">
-      <div class="container">
-        <div class="cta-box reveal">
-          <div class="cta-info">
-            <span class="eyebrow">Nu aanmelden</span>
-            <h2>Sluit je aan bij Sem Elite Performance</h2>
-            <p class="lead">
-              Voor atleten die meer willen dan een standaard gymervaring. Dit is een
-              premium performance-omgeving ontworpen voor serieuze groei.
-            </p>
-
-            <ul class="cta-list">
-              <li>1-op-1 of persoonlijk atleettraject</li>
-              <li>Luxe zwart-witte performance branding</li>
-              <li>Focus op resultaten, niet op willekeurige sessies</li>
-              <li>Ideaal voor voetballers en ambitieuze atleten</li>
-            </ul>
-          </div>
-
-          <div class="form-card">
-            <form class="form-grid">
-              <div class="field">
-                <label for="name">Naam</label>
-                <input id="name" type="text" placeholder="Jouw naam" />
-              </div>
-
-              <div class="field">
-                <label for="email">E-mail</label>
-                <input id="email" type="email" placeholder="jij@email.com" />
-              </div>
-
-              <div class="field">
-                <label for="sport">Sport / Focus</label>
-                <select id="sport">
-                  <option>Voetbal</option>
-                  <option>Snelheidstraining</option>
-                  <option>Kracht & conditie</option>
-                  <option>Jeugdontwikkeling</option>
-                  <option>Herstel / Return to play</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="message">Doelstelling</label>
-                <textarea
-                  id="message"
-                  placeholder="Vertel kort wat je doel is, waar je nu staat en wat je wilt verbeteren."
-                ></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-full">
-                Aanmelding versturen
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer id="contact">
+  <section id="samenvatting">
     <div class="container">
-      <div class="footer-wrap">
+      <div class="section-head">
         <div>
-          <div class="logo">
-            <span class="logo-main">Sem Elite</span>
-            <span class="logo-sub">Performance</span>
-          </div>
-          <p class="footer-copy" style="margin-top: 12px;">
-            Hoogwaardige performance coaching voor serieuze atleten.
-          </p>
+          <div class="kicker">01 • Algemene indruk</div>
+          <h2>Strategisch sterk, nog niet volledig uitgepolijst</h2>
         </div>
+        <p>
+          SPS Performance positioneert zich helder als een premium performance brand voor topsporters,
+          met nadruk op status, expertise, wereldklasse coaching en wetenschap.
+        </p>
+      </div>
 
-        <div class="footer-links">
-          <a href="mailto:info@semeliteperformance.com">info@semeliteperformance.com</a>
-          <a href="tel:+310612345678">+31 06 12345678</a>
-          <a href="#home">Terug naar boven</a>
+      <div class="quote">
+        “De site verkoopt overtuigend <strong>status, expertise en elite-associatie</strong>, maar laat op het vlak van
+        <strong>polish, consistentie en conversion guidance</strong> nog duidelijke ruimte voor verbetering.”
+        <small>Audit Conclusie</small>
+      </div>
+
+      <div class="scores" style="margin-top: 24px;">
+        <div class="score-card"><strong>9.0</strong><span class="muted">Positionering</span></div>
+        <div class="score-card"><strong>8.8</strong><span class="muted">Merkgevoel</span></div>
+        <div class="score-card"><strong>9.2</strong><span class="muted">Social Proof</span></div>
+        <div class="score-card"><strong>7.6</strong><span class="muted">UX Structuur</span></div>
+        <div class="score-card"><strong>7.2</strong><span class="muted">Conversie</span></div>
+        <div class="score-card"><strong>6.9</strong><span class="muted">Polish</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="secties">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">02 • Pagina-opbouw</div>
+          <h2>Secties en structuur</h2>
         </div>
+        <p>De informatiearchitectuur is logisch: Home, About, Services, Shop, Athletes en Contact.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="step">Homepage</div>
+          <div>
+            <h3>Hero, geloofwaardigheid en routes naar aanbod</h3>
+            <p class="muted">
+              De homepage opent sterk met een hero statement, duidelijke CTA’s en een directe scheiding tussen diensten en producten.
+              Daarna volgen credibility blocks, athlete social proof, service-overzicht, coach-positionering en productpromotie.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="step">About</div>
+          <div>
+            <h3>Filosofie, team en bewijsvoering</h3>
+            <p class="muted">
+              Een van de sterkste pagina’s: missie, visie, coachprofielen, ervaring, awards, statistieken en testimonials zijn goed
+              samengebracht en versterken de autoriteit van het merk.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="step">Services</div>
+          <div>
+            <h3>Commerciële kern met filter- en shoplogica</h3>
+            <p class="muted">
+              De services-pagina verkoopt concrete sessies en pakketten via filters, varianten en add-to-cart gedrag. Sterk in functionaliteit,
+              maar de keuzehulp voor bezoekers kan slimmer en begeleidender.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="step">Athletes</div>
+          <div>
+            <h3>Prestige-wall met testimonialwaarde</h3>
+            <p class="muted">
+              De atletenpagina is visueel en strategisch krachtig door de hoeveelheid namen en quotes. Tegelijk dreigt content overload,
+              omdat de hiërarchie en navigatie door het volume beperkt lijken.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="step">Contact</div>
+          <div>
+            <h3>Functioneel, maar te sober voor premium positioning</h3>
+            <p class="muted">
+              De contactpagina is eenvoudig en direct, maar mist intake-structuur, verwachtingen, extra vertrouwen en een high-end afwerking
+              die past bij de rest van het merkverhaal.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="effecten">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">03 • Interacties & motion</div>
+          <h2>Aanwezige effecten in de site</h2>
+        </div>
+        <p>Dit zijn de duidelijk waarneembare UX- en interface-effecten uit de audit.</p>
+      </div>
+
+      <div class="grid-4">
+        <article class="effect-item">
+          <div class="effect-tag">CTA</div>
+          <h4>Prominente knoppen</h4>
+          <p class="muted">Hero- en tussenblokken sturen actief naar programs, producten, contact en meer informatie.</p>
+        </article>
+
+        <article class="effect-item">
+          <div class="effect-tag">Menu</div>
+          <h4>Overlay / mobile nav gedrag</h4>
+          <p class="muted">De structuur duidt op een open/close menu-opzet met afzonderlijke desktop- en mobiele states.</p>
+        </article>
+
+        <article class="effect-item">
+          <div class="effect-tag">Filter</div>
+          <h4>Categorie-filtering</h4>
+          <p class="muted">Op services en athletes wordt gewerkt met categorieën en filterlogica voor snellere selectie.</p>
+        </article>
+
+        <article class="effect-item">
+          <div class="effect-tag">Shop</div>
+          <h4>Variant selectors</h4>
+          <p class="muted">Sessie-aantallen en productvarianten zijn selecteerbaar, wat de e-commerce laag functioneel maakt.</p>
+        </article>
+
+        <article class="effect-item">
+          <div class="effect-tag">Feedback</div>
+          <h4>Add-to-cart state</h4>
+          <p class="muted">De “Added!” feedback is een goede micro-interactie die actie bevestigt en frictie verlaagt.</p>
+        </article>
+
+        <article class="effect-item">
+          <div class="effect-tag">Empty State</div>
+          <h4>Geen resultaten melding</h4>
+          <p class="muted">Wanneer filters niets opleveren, krijgt de gebruiker een duidelijke terugkoppeling met hersteladvies.</p>
+        </article>
+
+        <article class="effect-item">
+          <div class="effect-tag">Anchor</div>
+          <h4>Skip-link navigatie</h4>
+          <p class="muted">Elementen zoals “Skip to Videos” versnellen navigatie op lange contentpagina’s.</p>
+        </article>
+
+        <article class="effect-item">
+          <div class="effect-tag">Motion</div>
+          <h4>Stats-marquee / ticker</h4>
+          <p class="muted">De About-pagina lijkt gebruik te maken van een doorlopende statistiekenstrip voor extra dynamiek.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="sterktes">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">04 • Wat werkt sterk</div>
+          <h2>Belangrijkste sterktes</h2>
+        </div>
+        <p>De site heeft een krachtig commercieel en psychologisch fundament.</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>Glasheldere positionering</h3>
+          <ul class="list">
+            <li>Direct duidelijk dat het geen doorsnee fitnessmerk is</li>
+            <li>Focus op elite sporters en high performance</li>
+            <li>Sterke premium- en expertise-associatie</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Uitzonderlijk sterke social proof</h3>
+          <ul class="list">
+            <li>Bekende atleten zorgen voor instant geloofwaardigheid</li>
+            <li>Testimonials verhogen vertrouwen en prestige</li>
+            <li>Atletenbibliotheek fungeert als merkbewijs</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Goede brug tussen branding en verkoop</h3>
+          <ul class="list">
+            <li>Niet alleen merkverhaal, maar ook concrete sessies en producten</li>
+            <li>CTA’s staan op logische plekken in de funnel</li>
+            <li>Services en shop ondersteunen directe actie</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Sterke About-pagina</h3>
+          <ul class="list">
+            <li>Coachprofielen voegen echte diepgang toe</li>
+            <li>Ervaring, opleiding en specialisaties zijn goed onderbouwd</li>
+            <li>Autoriteit voelt geloofwaardig in plaats van oppervlakkig</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="zwaktes">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">05 • Waar het schuurt</div>
+          <h2>Zwaktes en frictiepunten</h2>
+        </div>
+        <p>Voor een premium merk zijn kleine fouten extra zichtbaar en extra kostbaar.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <h3>Premium polish mist deels</h3>
+          <p class="muted">
+            Herhaalde navigatie, dubbele koppen en tekstuele inconsistenties verlagen de afwerkingsgraad.
+            Voor een elite brand moet de uitvoering net zo scherp zijn als de positionering.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Te veel herhaling in messaging</h3>
+          <p class="muted">
+            Kernwoorden zoals elite, science-backed en world-class zijn sterk, maar verliezen impact wanneer ze te vaak terugkomen.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Keuzehulp kan slimmer</h3>
+          <p class="muted">
+            De services-omgeving verkoopt pakketten, maar begeleidt gebruikers nog te weinig naar het juiste traject op basis van doel of niveau.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Contact mist premium funnel</h3>
+          <p class="muted">
+            De contactpagina is bruikbaar, maar te basic voor high-ticket dienstverlening. Intake, verwachtingen en context ontbreken.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Content overload op athletes</h3>
+          <p class="muted">
+            Veel atleten tonen status, maar zonder sterke sortering of visuele hiërarchie kan het overzicht zwaar aanvoelen.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Luxebeleving niet overal consequent</h3>
+          <p class="muted">
+            Sommige delen voelen premium en editorial, andere meer template-achtig of transactioneel. Dat contrast kan strakker.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="advies">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">06 • Concrete optimalisaties</div>
+          <h2>Wat ik direct zou verbeteren</h2>
+        </div>
+        <p>Onderstaande punten geven de grootste winst in kwaliteit, conversie en merkconsistentie.</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>1. Verhoog de afwerkingsgraad</h3>
+          <ul class="list">
+            <li>Dubbele koppen en navigatie verwijderen</li>
+            <li>Typefouten en inconsistenties corrigeren</li>
+            <li>Spacing, heading-hiërarchie en contentblokken uniform maken</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>2. Maak services beslisvriendelijker</h3>
+          <ul class="list">
+            <li>Werk met intake routes: youth, pro, recovery, group, private</li>
+            <li>Voeg vergelijkingsblokken toe tussen pakketten</li>
+            <li>Laat bezoekers sneller zien welk aanbod bij hun situatie past</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>3. Upgrade de contactfunnel</h3>
+          <ul class="list">
+            <li>Gebruik een korte intake met doel, niveau en gewenste service</li>
+            <li>Toon responstijd, locatiecontext en volgende stap</li>
+            <li>Maak contact voelen als een premium onboarding</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>4. Breng meer hiërarchie in athletes</h3>
+          <ul class="list">
+            <li>Splits op sport, status of case type</li>
+            <li>Highlight topcases in plaats van alles even zwaar te tonen</li>
+            <li>Gebruik featured stories naast de full roster</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">07 • Eindconclusie</div>
+          <h2>High-end fundament, klaar voor een nog scherper niveau</h2>
+        </div>
+        <p>De basis is sterk genoeg om als topmerk te worden gezien; de volgende stap is verfijning.</p>
+      </div>
+
+      <div class="quote">
+        SPS Performance heeft de juiste ingrediënten: een krachtige merkpositie, elite associaties,
+        overtuigende referenties en commercieel bruikbare pagina’s. De grootste winst zit nu niet in méér claims,
+        maar in <strong>meer precisie, meer rust en meer premium afwerking</strong>.
+        <small>SEM-stijl samenvatting</small>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="divider"></div>
+      <div class="footer-inner">
+        <span>SEM Elite Performance — Website Analyse HTML</span>
+        <span>Design direction: dark, premium, performance-led</span>
       </div>
     </div>
   </footer>
-
-  <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const mobileMenu = document.getElementById("mobileMenu");
-
-    menuToggle.addEventListener("click", () => {
-      mobileMenu.classList.toggle("open");
-    });
-
-    document.querySelectorAll('.mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    });
-
-    const reveals = document.querySelectorAll(".reveal");
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.12
-    });
-
-    reveals.forEach((item) => revealObserver.observe(item));
-  </script>
 </body>
 </html>
