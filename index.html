@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SEM Elite Performance — Website Analyse</title>
+  <title>SEM Elite Performance — Off Season Performance Kamp</title>
   <style>
     :root {
       --bg: #050505;
-      --panel: #0f0f10;
-      --panel-2: #151516;
-      --text: #f3f3f3;
-      --muted: #b9b9b9;
+      --bg-soft: #0c0c0d;
+      --panel: #111214;
+      --panel-2: #17181b;
+      --text: #f5f5f5;
+      --muted: #b8bcc4;
       --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.14);
       --accent: #ffffff;
-      --soft: rgba(255,255,255,0.06);
-      --shadow: 0 20px 50px rgba(0,0,0,0.45);
-      --radius: 22px;
+      --radius: 24px;
+      --radius-sm: 16px;
+      --shadow: 0 24px 60px rgba(0,0,0,0.45);
       --max: 1180px;
     }
 
@@ -25,69 +27,67 @@
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 30%),
-        linear-gradient(180deg, #060606 0%, #040404 100%);
+        radial-gradient(circle at top right, rgba(255,255,255,0.08), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(255,255,255,0.05), transparent 20%),
+        linear-gradient(180deg, #040404 0%, #070707 100%);
       color: var(--text);
       line-height: 1.6;
     }
 
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    img { display: block; max-width: 100%; }
 
     .container {
-      width: min(var(--max), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 28px));
       margin: 0 auto;
     }
 
     .nav {
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: rgba(5,5,5,0.7);
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(5,5,5,0.72);
       border-bottom: 1px solid var(--line);
     }
 
     .nav-inner {
+      min-height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      min-height: 78px;
+      gap: 18px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       font-weight: 800;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
     }
 
     .brand img {
-      width: 52px;
-      height: 52px;
+      width: 48px;
+      height: 48px;
       object-fit: contain;
       border-radius: 12px;
+      border: 1px solid var(--line);
       background: #000;
       padding: 4px;
-      border: 1px solid var(--line);
     }
 
     .nav-links {
       display: flex;
-      gap: 18px;
       flex-wrap: wrap;
+      gap: 16px;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.94rem;
     }
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--text);
-    }
+    .nav-links a:hover { color: var(--text); }
 
     .hero {
       position: relative;
@@ -99,36 +99,35 @@
     .hero::after {
       content: "";
       position: absolute;
-      inset: auto;
       border-radius: 999px;
-      filter: blur(70px);
-      opacity: 0.2;
+      filter: blur(85px);
+      opacity: 0.18;
       pointer-events: none;
     }
 
     .hero::before {
-      width: 360px;
-      height: 360px;
+      width: 340px;
+      height: 340px;
       background: #fff;
-      top: -120px;
+      top: -80px;
       right: -80px;
     }
 
     .hero::after {
-      width: 280px;
-      height: 280px;
+      width: 260px;
+      height: 260px;
       background: #fff;
-      bottom: -120px;
+      bottom: -100px;
       left: -60px;
     }
 
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 28px;
-      align-items: center;
       min-height: calc(100vh - 79px);
-      padding: 56px 0 64px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 26px;
+      align-items: center;
+      padding: 48px 0 56px;
     }
 
     .eyebrow {
@@ -136,29 +135,29 @@
       align-items: center;
       gap: 10px;
       padding: 8px 14px;
-      border: 1px solid var(--line);
       border-radius: 999px;
-      color: var(--muted);
+      border: 1px solid var(--line);
       background: rgba(255,255,255,0.03);
-      font-size: 0.84rem;
+      color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.14em;
+      font-size: 0.77rem;
     }
 
     h1, h2, h3, h4, p { margin-top: 0; }
 
     h1 {
-      font-size: clamp(2.8rem, 7vw, 6rem);
-      line-height: 0.96;
-      margin: 18px 0 22px;
-      letter-spacing: -0.04em;
+      margin: 18px 0 18px;
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      line-height: 0.93;
+      letter-spacing: -0.05em;
       text-transform: uppercase;
     }
 
-    .hero p {
+    .lead {
+      font-size: 1.08rem;
       max-width: 760px;
       color: var(--muted);
-      font-size: 1.08rem;
     }
 
     .hero-actions {
@@ -169,34 +168,39 @@
     }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       min-height: 48px;
       padding: 0 18px;
       border-radius: 999px;
       border: 1px solid var(--line);
-      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-      font-weight: 700;
-      letter-spacing: 0.03em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      transition: transform .24s ease, border-color .24s ease, background .24s ease;
     }
 
     .btn:hover { transform: translateY(-2px); }
+
     .btn.primary {
       background: #fff;
       color: #000;
       border-color: #fff;
     }
+
     .btn.secondary {
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.03);
       color: var(--text);
     }
 
-    .hero-card,
     .card,
-    .score-card,
-    .effect-item,
-    .timeline-item {
+    .hero-card,
+    .price-card,
+    .mini-card,
+    .split-card,
+    .cta-box,
+    .timeline-item,
+    .badge-box {
       background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -205,102 +209,74 @@
 
     .hero-card {
       padding: 22px;
-      position: relative;
       overflow: hidden;
+      position: relative;
     }
 
     .hero-card::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.14), transparent 50%);
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent 55%);
       pointer-events: none;
     }
 
     .hero-card img {
-      border-radius: 18px;
-      border: 1px solid var(--line);
       background: #000;
+      border: 1px solid var(--line);
+      border-radius: 18px;
       aspect-ratio: 1 / 1;
       object-fit: contain;
       padding: 18px;
     }
 
-    .hero-stats {
+    .hero-meta {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
-      margin-top: 16px;
+      margin-top: 14px;
     }
 
-    .mini-stat {
+    .mini-card {
       padding: 14px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--line);
+      border-radius: 16px;
     }
 
-    .mini-stat strong {
+    .mini-card strong {
       display: block;
-      font-size: 1.2rem;
-      margin-bottom: 4px;
+      font-size: 1.08rem;
+      margin-bottom: 3px;
     }
 
     section {
-      padding: 84px 0;
+      padding: 82px 0;
       border-bottom: 1px solid var(--line);
     }
 
     .section-head {
       display: flex;
       justify-content: space-between;
+      gap: 20px;
       align-items: end;
-      gap: 18px;
       margin-bottom: 28px;
     }
 
     .section-head h2 {
+      margin-bottom: 8px;
       font-size: clamp(1.7rem, 3vw, 3rem);
       line-height: 1;
-      margin-bottom: 8px;
+      letter-spacing: -0.04em;
       text-transform: uppercase;
-      letter-spacing: -0.03em;
     }
 
-    .section-head p,
-    .muted {
-      color: var(--muted);
-    }
-
-    .grid-2,
-    .grid-3,
-    .grid-4 {
-      display: grid;
-      gap: 18px;
-    }
-
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-
-    .card {
-      padding: 24px;
-      position: relative;
-    }
-
-    .card h3 {
-      font-size: 1.08rem;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+    .muted { color: var(--muted); }
 
     .kicker {
-      display: inline-block;
-      margin-bottom: 14px;
+      display: inline-flex;
       padding: 6px 10px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.06);
+      margin-bottom: 14px;
+      background: rgba(255,255,255,0.05);
       border: 1px solid var(--line);
       color: var(--muted);
       font-size: 0.74rem;
@@ -308,12 +284,32 @@
       letter-spacing: 0.12em;
     }
 
-    .list {
+    .grid-2, .grid-3, .grid-4 {
       display: grid;
-      gap: 10px;
+      gap: 18px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+
+    .card, .split-card {
+      padding: 24px;
+    }
+
+    .card h3, .split-card h3, .price-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.06rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .list {
+      list-style: none;
       padding: 0;
       margin: 0;
-      list-style: none;
+      display: grid;
+      gap: 10px;
     }
 
     .list li {
@@ -324,39 +320,33 @@
 
     .list li::before {
       content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #fff;
       position: absolute;
       left: 0;
-      top: 0.62em;
+      top: .68em;
       transform: translateY(-50%);
-    }
-
-    .effect-item {
-      padding: 20px;
-      min-height: 220px;
-    }
-
-    .effect-item h4 {
-      margin-bottom: 10px;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .effect-tag {
-      display: inline-flex;
-      padding: 5px 9px;
-      border-radius: 999px;
-      margin-bottom: 14px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
       background: #fff;
-      color: #000;
-      font-size: 0.72rem;
-      font-weight: 800;
+    }
+
+    .quote {
+      padding: 28px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      font-size: clamp(1.12rem, 2vw, 1.55rem);
+      line-height: 1.45;
+      box-shadow: var(--shadow);
+    }
+
+    .quote small {
+      display: block;
+      margin-top: 14px;
+      font-size: 0.9rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
+      color: var(--muted);
     }
 
     .timeline {
@@ -365,125 +355,165 @@
     }
 
     .timeline-item {
-      padding: 24px;
+      padding: 22px;
       display: grid;
-      grid-template-columns: 110px 1fr;
+      grid-template-columns: 130px 1fr;
       gap: 18px;
       align-items: start;
     }
 
-    .timeline-item .step {
-      font-size: 0.85rem;
+    .step {
       color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      padding-top: 3px;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      padding-top: 2px;
     }
 
-    .scores {
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .badge-box {
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      color: var(--text);
+    }
+
+    .price-grid {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
 
-    .score-card {
-      padding: 18px;
-      text-align: center;
+    .price-card {
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .score-card strong {
-      display: block;
+    .price-card.featured {
+      border-color: var(--line-strong);
+      transform: translateY(-4px);
+    }
+
+    .price-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+
+    .price {
       font-size: 2rem;
-      line-height: 1;
-      margin-bottom: 8px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
     }
 
-    .quote {
-      padding: 28px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      font-size: clamp(1.15rem, 2vw, 1.6rem);
-      line-height: 1.4;
-      box-shadow: var(--shadow);
-    }
-
-    .quote small {
-      display: block;
-      margin-top: 16px;
+    .price-sub {
       color: var(--muted);
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
+      font-size: 0.92rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #fff;
+      color: #000;
+      font-weight: 800;
+      font-size: 0.72rem;
       text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .cta-box {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .form-mock {
+      display: grid;
+      gap: 10px;
+    }
+
+    .field {
+      min-height: 50px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      color: var(--muted);
     }
 
     .footer {
-      padding: 34px 0 56px;
+      padding: 30px 0 54px;
       color: var(--muted);
     }
 
     .footer-inner {
       display: flex;
-      align-items: center;
       justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
     .divider {
       width: 100%;
       height: 1px;
       background: var(--line);
-      margin: 10px 0 0;
+      margin-bottom: 20px;
     }
 
     @media (max-width: 1080px) {
       .hero-grid,
-      .grid-3,
       .grid-4,
-      .scores,
-      .grid-2 {
+      .grid-3,
+      .price-grid,
+      .grid-2,
+      .cta-box {
         grid-template-columns: 1fr 1fr;
-      }
-
-      .hero-grid {
-        min-height: auto;
-        padding-top: 42px;
       }
     }
 
     @media (max-width: 780px) {
-      .nav-inner,
-      .section-head,
-      .footer-inner,
-      .timeline-item,
       .hero-grid,
-      .hero-stats,
-      .grid-2,
-      .grid-3,
       .grid-4,
-      .scores {
+      .grid-3,
+      .price-grid,
+      .grid-2,
+      .cta-box,
+      .hero-meta,
+      .timeline-item {
         grid-template-columns: 1fr;
-        display: grid;
       }
 
       .nav-inner,
-      .footer-inner {
+      .footer-inner,
+      .section-head {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .timeline-item {
-        gap: 10px;
-      }
-
-      .timeline-item .step {
-        padding-top: 0;
+      .hero-grid {
+        min-height: auto;
+        padding: 38px 0 46px;
       }
 
       section {
-        padding: 66px 0;
+        padding: 64px 0;
       }
 
       h1 {
@@ -500,12 +530,12 @@
         <span>SEM Elite Performance</span>
       </a>
       <div class="nav-links">
-        <a href="#samenvatting" class="active">Samenvatting</a>
-        <a href="#secties">Secties</a>
-        <a href="#effecten">Effecten</a>
-        <a href="#sterktes">Sterktes</a>
-        <a href="#zwaktes">Zwaktes</a>
-        <a href="#advies">Advies</a>
+        <a href="#programma">Programma</a>
+        <a href="#voor-wie">Voor wie</a>
+        <a href="#methode">Methode</a>
+        <a href="#prijzen">Pakketten</a>
+        <a href="#coach">Coach</a>
+        <a href="#aanmelden">Aanmelden</a>
       </div>
     </div>
   </nav>
@@ -513,351 +543,193 @@
   <header class="hero" id="top">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">Website Audit • Premium Performance Theme</span>
-        <h1>SPS Performance<br>Diepgaande Analyse</h1>
-        <p>
-          Deze HTML-pagina vertaalt de volledige audit naar een stijl die past bij <strong>SEM Elite Performance</strong>: strak, donker,
-          high-end en prestatiegericht. De inhoud is opgebouwd rond positionering, secties, effecten, UX-kwaliteit,
-          conversie en concrete verbeterkansen.
+        <span class="eyebrow">Elite High Performance • Off Season</span>
+        <h1>Elite Off Season<br>Performance Kamp</h1>
+        <p class="lead">
+          Voor spelers die in de off season niet willen stilvallen. Dit kamp is gebouwd om je <strong>fitter, sneller,
+          krachtiger en robuuster</strong> te maken, zodat je voorbereid terugkomt richting voorbereiding en seizoen.
+        </p>
+        <p class="lead">
+          SEM Elite Performance draait om één visie: het menselijk lichaam functioneel laten bewegen,
+          zodat de output van bewegen optimaal wordt. Beter bewegen betekent sneller, explosiever,
+          krachtiger en beter in je lichaam zitten.
         </p>
         <div class="hero-actions">
-          <a class="btn primary" href="#samenvatting">Bekijk Analyse</a>
-          <a class="btn secondary" href="#advies">Direct naar Advies</a>
+          <a href="#aanmelden" class="btn primary">Meld je aan</a>
+          <a href="#prijzen" class="btn secondary">Bekijk 2-week plan</a>
         </div>
       </div>
+
       <aside class="hero-card">
         <img src="/mnt/data/logo.jpg" alt="SEM Elite Performance visual" />
-        <div class="hero-stats">
-          <div class="mini-stat">
-            <strong>Premium</strong>
-            <span class="muted">High-performance uitstraling</span>
+        <div class="hero-meta">
+          <div class="mini-card">
+            <strong>12 dagen</strong>
+            <span class="muted">Off season trainingskamp</span>
           </div>
-          <div class="mini-stat">
-            <strong>Elite</strong>
-            <span class="muted">Sterke social proof en status</span>
+          <div class="mini-card">
+            <strong>Breda regio</strong>
+            <span class="muted">Breda / Oosterhout</span>
           </div>
-          <div class="mini-stat">
-            <strong>UX+</strong>
-            <span class="muted">Goed fundament, polish mist</span>
+          <div class="mini-card">
+            <strong>Elite mindset</strong>
+            <span class="muted">Discipline & professionaliteit</span>
           </div>
         </div>
       </aside>
     </div>
   </header>
 
-  <section id="samenvatting">
+  <section id="programma">
     <div class="container">
       <div class="section-head">
         <div>
-          <div class="kicker">01 • Algemene indruk</div>
-          <h2>Strategisch sterk, nog niet volledig uitgepolijst</h2>
+          <div class="kicker">01 • Hoofdfocus</div>
+          <h2>Wat dit kamp doet voor sporters</h2>
         </div>
-        <p>
-          SPS Performance positioneert zich helder als een premium performance brand voor topsporters,
-          met nadruk op status, expertise, wereldklasse coaching en wetenschap.
+        <p class="muted">
+          Leads verzamelen, spelers laten inschrijven en helder laten zien wat jij doet met een elite off season trainingskamp.
         </p>
-      </div>
-
-      <div class="quote">
-        “De site verkoopt overtuigend <strong>status, expertise en elite-associatie</strong>, maar laat op het vlak van
-        <strong>polish, consistentie en conversion guidance</strong> nog duidelijke ruimte voor verbetering.”
-        <small>Audit Conclusie</small>
-      </div>
-
-      <div class="scores" style="margin-top: 24px;">
-        <div class="score-card"><strong>9.0</strong><span class="muted">Positionering</span></div>
-        <div class="score-card"><strong>8.8</strong><span class="muted">Merkgevoel</span></div>
-        <div class="score-card"><strong>9.2</strong><span class="muted">Social Proof</span></div>
-        <div class="score-card"><strong>7.6</strong><span class="muted">UX Structuur</span></div>
-        <div class="score-card"><strong>7.2</strong><span class="muted">Conversie</span></div>
-        <div class="score-card"><strong>6.9</strong><span class="muted">Polish</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="secties">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <div class="kicker">02 • Pagina-opbouw</div>
-          <h2>Secties en structuur</h2>
-        </div>
-        <p>De informatiearchitectuur is logisch: Home, About, Services, Shop, Athletes en Contact.</p>
-      </div>
-
-      <div class="timeline">
-        <article class="timeline-item">
-          <div class="step">Homepage</div>
-          <div>
-            <h3>Hero, geloofwaardigheid en routes naar aanbod</h3>
-            <p class="muted">
-              De homepage opent sterk met een hero statement, duidelijke CTA’s en een directe scheiding tussen diensten en producten.
-              Daarna volgen credibility blocks, athlete social proof, service-overzicht, coach-positionering en productpromotie.
-            </p>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <div class="step">About</div>
-          <div>
-            <h3>Filosofie, team en bewijsvoering</h3>
-            <p class="muted">
-              Een van de sterkste pagina’s: missie, visie, coachprofielen, ervaring, awards, statistieken en testimonials zijn goed
-              samengebracht en versterken de autoriteit van het merk.
-            </p>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <div class="step">Services</div>
-          <div>
-            <h3>Commerciële kern met filter- en shoplogica</h3>
-            <p class="muted">
-              De services-pagina verkoopt concrete sessies en pakketten via filters, varianten en add-to-cart gedrag. Sterk in functionaliteit,
-              maar de keuzehulp voor bezoekers kan slimmer en begeleidender.
-            </p>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <div class="step">Athletes</div>
-          <div>
-            <h3>Prestige-wall met testimonialwaarde</h3>
-            <p class="muted">
-              De atletenpagina is visueel en strategisch krachtig door de hoeveelheid namen en quotes. Tegelijk dreigt content overload,
-              omdat de hiërarchie en navigatie door het volume beperkt lijken.
-            </p>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <div class="step">Contact</div>
-          <div>
-            <h3>Functioneel, maar te sober voor premium positioning</h3>
-            <p class="muted">
-              De contactpagina is eenvoudig en direct, maar mist intake-structuur, verwachtingen, extra vertrouwen en een high-end afwerking
-              die past bij de rest van het merkverhaal.
-            </p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="effecten">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <div class="kicker">03 • Interacties & motion</div>
-          <h2>Aanwezige effecten in de site</h2>
-        </div>
-        <p>Dit zijn de duidelijk waarneembare UX- en interface-effecten uit de audit.</p>
-      </div>
-
-      <div class="grid-4">
-        <article class="effect-item">
-          <div class="effect-tag">CTA</div>
-          <h4>Prominente knoppen</h4>
-          <p class="muted">Hero- en tussenblokken sturen actief naar programs, producten, contact en meer informatie.</p>
-        </article>
-
-        <article class="effect-item">
-          <div class="effect-tag">Menu</div>
-          <h4>Overlay / mobile nav gedrag</h4>
-          <p class="muted">De structuur duidt op een open/close menu-opzet met afzonderlijke desktop- en mobiele states.</p>
-        </article>
-
-        <article class="effect-item">
-          <div class="effect-tag">Filter</div>
-          <h4>Categorie-filtering</h4>
-          <p class="muted">Op services en athletes wordt gewerkt met categorieën en filterlogica voor snellere selectie.</p>
-        </article>
-
-        <article class="effect-item">
-          <div class="effect-tag">Shop</div>
-          <h4>Variant selectors</h4>
-          <p class="muted">Sessie-aantallen en productvarianten zijn selecteerbaar, wat de e-commerce laag functioneel maakt.</p>
-        </article>
-
-        <article class="effect-item">
-          <div class="effect-tag">Feedback</div>
-          <h4>Add-to-cart state</h4>
-          <p class="muted">De “Added!” feedback is een goede micro-interactie die actie bevestigt en frictie verlaagt.</p>
-        </article>
-
-        <article class="effect-item">
-          <div class="effect-tag">Empty State</div>
-          <h4>Geen resultaten melding</h4>
-          <p class="muted">Wanneer filters niets opleveren, krijgt de gebruiker een duidelijke terugkoppeling met hersteladvies.</p>
-        </article>
-
-        <article class="effect-item">
-          <div class="effect-tag">Anchor</div>
-          <h4>Skip-link navigatie</h4>
-          <p class="muted">Elementen zoals “Skip to Videos” versnellen navigatie op lange contentpagina’s.</p>
-        </article>
-
-        <article class="effect-item">
-          <div class="effect-tag">Motion</div>
-          <h4>Stats-marquee / ticker</h4>
-          <p class="muted">De About-pagina lijkt gebruik te maken van een doorlopende statistiekenstrip voor extra dynamiek.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="sterktes">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <div class="kicker">04 • Wat werkt sterk</div>
-          <h2>Belangrijkste sterktes</h2>
-        </div>
-        <p>De site heeft een krachtig commercieel en psychologisch fundament.</p>
-      </div>
-
-      <div class="grid-2">
-        <article class="card">
-          <h3>Glasheldere positionering</h3>
-          <ul class="list">
-            <li>Direct duidelijk dat het geen doorsnee fitnessmerk is</li>
-            <li>Focus op elite sporters en high performance</li>
-            <li>Sterke premium- en expertise-associatie</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Uitzonderlijk sterke social proof</h3>
-          <ul class="list">
-            <li>Bekende atleten zorgen voor instant geloofwaardigheid</li>
-            <li>Testimonials verhogen vertrouwen en prestige</li>
-            <li>Atletenbibliotheek fungeert als merkbewijs</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Goede brug tussen branding en verkoop</h3>
-          <ul class="list">
-            <li>Niet alleen merkverhaal, maar ook concrete sessies en producten</li>
-            <li>CTA’s staan op logische plekken in de funnel</li>
-            <li>Services en shop ondersteunen directe actie</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Sterke About-pagina</h3>
-          <ul class="list">
-            <li>Coachprofielen voegen echte diepgang toe</li>
-            <li>Ervaring, opleiding en specialisaties zijn goed onderbouwd</li>
-            <li>Autoriteit voelt geloofwaardig in plaats van oppervlakkig</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="zwaktes">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <div class="kicker">05 • Waar het schuurt</div>
-          <h2>Zwaktes en frictiepunten</h2>
-        </div>
-        <p>Voor een premium merk zijn kleine fouten extra zichtbaar en extra kostbaar.</p>
       </div>
 
       <div class="grid-3">
         <article class="card">
-          <h3>Premium polish mist deels</h3>
-          <p class="muted">
-            Herhaalde navigatie, dubbele koppen en tekstuele inconsistenties verlagen de afwerkingsgraad.
-            Voor een elite brand moet de uitvoering net zo scherp zijn als de positionering.
-          </p>
+          <h3>Doel</h3>
+          <ul class="list">
+            <li>Spelers fit houden in de off season</li>
+            <li>Snelheid, kracht en conditie verbeteren</li>
+            <li>Duidelijkheid geven over jouw aanpak en expertise</li>
+          </ul>
         </article>
-
         <article class="card">
-          <h3>Te veel herhaling in messaging</h3>
-          <p class="muted">
-            Kernwoorden zoals elite, science-backed en world-class zijn sterk, maar verliezen impact wanneer ze te vaak terugkomen.
-          </p>
+          <h3>Belofte</h3>
+          <ul class="list">
+            <li>Beter kunnen bewegen</li>
+            <li>Krachtiger en sneller worden</li>
+            <li>Robuuster terugkomen richting seizoen</li>
+          </ul>
         </article>
-
         <article class="card">
-          <h3>Keuzehulp kan slimmer</h3>
-          <p class="muted">
-            De services-omgeving verkoopt pakketten, maar begeleidt gebruikers nog te weinig naar het juiste traject op basis van doel of niveau.
-          </p>
+          <h3>Call to action</h3>
+          <ul class="list">
+            <li>Inschrijven voor het 2-week off season plan</li>
+            <li>Intake en aanmelden als één duidelijke route</li>
+            <li>Wachtlijst bouwen voor exclusiviteit</li>
+          </ul>
         </article>
+      </div>
 
-        <article class="card">
-          <h3>Contact mist premium funnel</h3>
-          <p class="muted">
-            De contactpagina is bruikbaar, maar te basic voor high-ticket dienstverlening. Intake, verwachtingen en context ontbreken.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Content overload op athletes</h3>
-          <p class="muted">
-            Veel atleten tonen status, maar zonder sterke sortering of visuele hiërarchie kan het overzicht zwaar aanvoelen.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Luxebeleving niet overal consequent</h3>
-          <p class="muted">
-            Sommige delen voelen premium en editorial, andere meer template-achtig of transactioneel. Dat contrast kan strakker.
-          </p>
-        </article>
+      <div class="quote" style="margin-top: 22px;">
+        “Ontdekken hoe je lichaam werkt om er optimaal gebruik van te maken — met als resultaat dat je
+        sneller, explosiever en krachtiger wordt.”
+        <small>SEM Elite Performance visie</small>
       </div>
     </div>
   </section>
 
-  <section id="advies">
+  <section id="voor-wie">
     <div class="container">
       <div class="section-head">
         <div>
-          <div class="kicker">06 • Concrete optimalisaties</div>
-          <h2>Wat ik direct zou verbeteren</h2>
+          <div class="kicker">02 • Doelgroep</div>
+          <h2>Voor welke spelers dit is</h2>
         </div>
-        <p>Onderstaande punten geven de grootste winst in kwaliteit, conversie en merkconsistentie.</p>
+        <p class="muted">Vanaf O17 tot jong profs, profs en topamateurs. Zowel individueel als in groep.</p>
       </div>
 
       <div class="grid-2">
-        <article class="card">
-          <h3>1. Verhoog de afwerkingsgraad</h3>
+        <article class="split-card">
+          <h3>Doelgroep</h3>
           <ul class="list">
-            <li>Dubbele koppen en navigatie verwijderen</li>
-            <li>Typefouten en inconsistenties corrigeren</li>
-            <li>Spacing, heading-hiërarchie en contentblokken uniform maken</li>
+            <li>Vanaf O17 tot jong prof clubs</li>
+            <li>Profs en topamateurs</li>
+            <li>Spelers worden rechtstreeks aangesproken</li>
+            <li>Individuele begeleiding en groepsaanpak zijn beide mogelijk</li>
+          </ul>
+        </article>
+
+        <article class="split-card">
+          <h3>Probleem dat je oplost</h3>
+          <ul class="list">
+            <li>Niet fit blijven in de off season</li>
+            <li>Snelheid, kracht en conditie inleveren</li>
+            <li>Niet optimaal voorbereid aan voorbereiding beginnen</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="badge-row" style="margin-top: 18px;">
+        <div class="badge-box">Breda</div>
+        <div class="badge-box">Oosterhout</div>
+        <div class="badge-box">High Performance</div>
+        <div class="badge-box">Fysiek</div>
+        <div class="badge-box">Elite Mindset</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="methode">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">03 • Jouw methode</div>
+          <h2>Functioneel bewegen voor maximale output</h2>
+        </div>
+        <p class="muted">Menselijk lichaam functioneel laten bewegen, zodat de output optimaal is.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <h3>Fysieke focus</h3>
+          <ul class="list">
+            <li>Snelheid</li>
+            <li>Explosiviteit</li>
+            <li>Mobiliteit</li>
+            <li>Blessurepreventie</li>
           </ul>
         </article>
 
         <article class="card">
-          <h3>2. Maak services beslisvriendelijker</h3>
+          <h3>Resultaat voor sporters</h3>
           <ul class="list">
-            <li>Werk met intake routes: youth, pro, recovery, group, private</li>
-            <li>Voeg vergelijkingsblokken toe tussen pakketten</li>
-            <li>Laat bezoekers sneller zien welk aanbod bij hun situatie past</li>
+            <li>Beter bewegen en beter in het lichaam zitten</li>
+            <li>Sneller en krachtiger worden</li>
+            <li>Fitter en robuuster terugkomen</li>
           </ul>
         </article>
 
         <article class="card">
-          <h3>3. Upgrade de contactfunnel</h3>
+          <h3>Merkwaarden</h3>
           <ul class="list">
-            <li>Gebruik een korte intake met doel, niveau en gewenste service</li>
-            <li>Toon responstijd, locatiecontext en volgende stap</li>
-            <li>Maak contact voelen als een premium onboarding</li>
+            <li>Discipline</li>
+            <li>Elite mindset</li>
+            <li>Professionaliteit</li>
+            <li>Veilig en motiverend</li>
           </ul>
         </article>
+      </div>
 
-        <article class="card">
-          <h3>4. Breng meer hiërarchie in athletes</h3>
-          <ul class="list">
-            <li>Splits op sport, status of case type</li>
-            <li>Highlight topcases in plaats van alles even zwaar te tonen</li>
-            <li>Gebruik featured stories naast de full roster</li>
-          </ul>
+      <div class="timeline" style="margin-top: 22px;">
+        <article class="timeline-item">
+          <div class="step">Weekritme</div>
+          <div>
+            <h3>2 weken lang duidelijke opbouw</h3>
+            <p class="muted">
+              Maandag veld, dinsdag kracht, woensdag body movements, donderdag veld, vrijdag kracht,
+              zaterdag body movements en zondag rust. Dit ritme loopt 2 weken door, aangevuld met testen,
+              intake en een exitmoment.
+            </p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="step">Persoonlijk</div>
+          <div>
+            <h3>Intake, testen en exit</h3>
+            <p class="muted">
+              De aanpak is persoonlijk. Elke speler start met een intake en testen, werkt door een inhoudelijk programma heen
+              en sluit af met een exit om progressie helder te maken.
+            </p>
+          </div>
         </article>
       </div>
     </div>
@@ -867,17 +739,224 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <div class="kicker">07 • Eindconclusie</div>
-          <h2>High-end fundament, klaar voor een nog scherper niveau</h2>
+          <div class="kicker">04 • Waarom dit uniek is</div>
+          <h2>Unieke manier van trainen en resultaat</h2>
         </div>
-        <p>De basis is sterk genoeg om als topmerk te worden gezien; de volgende stap is verfijning.</p>
+        <p class="muted">De combinatie van expertise voor bewegen, ervaring en resultaat is jouw onderscheid.</p>
       </div>
 
-      <div class="quote">
-        SPS Performance heeft de juiste ingrediënten: een krachtige merkpositie, elite associaties,
-        overtuigende referenties en commercieel bruikbare pagina’s. De grootste winst zit nu niet in méér claims,
-        maar in <strong>meer precisie, meer rust en meer premium afwerking</strong>.
-        <small>SEM-stijl samenvatting</small>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Wat spelers ervaren</h3>
+          <ul class="list">
+            <li>Een high-performance omgeving</li>
+            <li>Persoonlijke coaching fysiek én mentaal</li>
+            <li>Een professionele premium setting</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Waarom ze kiezen</h3>
+          <ul class="list">
+            <li>Unieke kijk op hoe het lichaam beweegt</li>
+            <li>Resultaatgericht trainen in plaats van zomaar hard werken</li>
+            <li>Doel: sneller, explosiever en krachtiger worden</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="coach">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">05 • Coach</div>
+          <h2>Sem van der Pijl</h2>
+        </div>
+        <p class="muted">Feyenoord-verleden, huidige performance coach en gebouwd vanuit elite omgeving.</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="split-card">
+          <h3>Achtergrond</h3>
+          <ul class="list">
+            <li>Voetbalverleden bij Feyenoord</li>
+            <li>Al 4 jaar performance coach bij NAC</li>
+            <li>Ervaring op het hoogste niveau van Nederland</li>
+            <li>Werkt vanuit een elite mindset</li>
+          </ul>
+        </article>
+
+        <article class="split-card">
+          <h3>Missie als coach</h3>
+          <ul class="list">
+            <li>Spelers fit houden en verantwoord sterker maken</li>
+            <li>Het beste uit ieder individu omhoog halen</li>
+            <li>Coaching op fysiek én op de ziel / mentaal</li>
+            <li>Veilig, vertrouwd, motiverend en prestatiegericht werken</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="badge-row" style="margin-top: 18px;">
+        <div class="badge-box">NAC</div>
+        <div class="badge-box">Feyenoord</div>
+        <div class="badge-box">PSV</div>
+        <div class="badge-box">Utrecht</div>
+        <div class="badge-box">Vitesse</div>
+        <div class="badge-box">Den Bosch</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prijzen">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">06 • Pakketten</div>
+          <h2>Kies het pakket dat past bij jouw zomer</h2>
+        </div>
+        <p class="muted">Drie off season pakketten met oplopende diepgang, begeleiding en personalisatie.</p>
+      </div>
+
+      <div class="price-grid">
+        <article class="price-card">
+          <div class="price-top">
+            <h3>Pakket 1</h3>
+            <span class="tag">Start</span>
+          </div>
+          <div class="price">€375</div>
+          <div class="price-sub">12 dagen trainingskamp</div>
+          <ul class="list" style="margin-top: 18px;">
+            <li>Aparte testdag en kennismaken met Action Types Profilering</li>
+            <li>Testen: 10m, 30-40m, HRmax, HR herstel en krachtmonitoring</li>
+            <li>11 dagen training</li>
+            <li>Per dag 90–120 minuten trainen</li>
+          </ul>
+        </article>
+
+        <article class="price-card featured">
+          <div class="price-top">
+            <h3>Pakket 2</h3>
+            <span class="tag">Meest gekozen</span>
+          </div>
+          <div class="price">€450</div>
+          <div class="price-sub">12 dagen trainingskamp</div>
+          <ul class="list" style="margin-top: 18px;">
+            <li>Alles uit pakket 1</li>
+            <li>Begeleiding en uitwerking prep & cooling down van Action Types</li>
+            <li>Kleding: shirtje en broek</li>
+            <li>6 dagen achter elkaar trainen binnen de opbouw</li>
+          </ul>
+        </article>
+
+        <article class="price-card">
+          <div class="price-top">
+            <h3>Pakket 3</h3>
+            <span class="tag">Premium</span>
+          </div>
+          <div class="price">€550</div>
+          <div class="price-sub">Kamp + zomerschema</div>
+          <ul class="list" style="margin-top: 18px;">
+            <li>Alles uit pakket 2</li>
+            <li>Extra MAS test</li>
+            <li>Persoonlijk zomerschema voor conditie, kracht en body movements</li>
+            <li>Online doorvertaling na het trainingskamp</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="grid-3" style="margin-top: 18px;">
+        <article class="card">
+          <h3>Extra aanbod</h3>
+          <ul class="list">
+            <li>Fysiek pakket</li>
+            <li>Fysiek + online begeleiding</li>
+            <li>1-op-1 coaching</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Exclusiviteit</h3>
+          <ul class="list">
+            <li>Wachtlijst opbouwen</li>
+            <li>Beperkte plekken voor premium gevoel</li>
+            <li>Focus op kwaliteit boven volume</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Wat nog later kan</h3>
+          <ul class="list">
+            <li>Resultaten-sectie toevoegen maar nog niet live zetten</li>
+            <li>Training schema voorbeelden tonen</li>
+            <li>Kalender en uitleg performance testen toevoegen</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="aanmelden">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">07 • Intake + aanmelden</div>
+          <h2>Eén duidelijke route naar inschrijven</h2>
+        </div>
+        <p class="muted">Geen FAQ, geen blog, geen kennisbank. De focus ligt op duidelijkheid, vertrouwen en actie.</p>
+      </div>
+
+      <div class="cta-box">
+        <div>
+          <h3 style="font-size: 1.35rem; text-transform: uppercase; letter-spacing: 0.04em;">Vraag je intake aan voor het off season kamp</h3>
+          <p class="muted">
+            De intake en aanmelding worden gecombineerd tot één premium flow. De speler ontdekt wat het beste pakket is,
+            krijgt direct duidelijkheid en kan zich vervolgens inschrijven voor het 2-week plan of de wachtlijst.
+          </p>
+          <div class="hero-actions">
+            <a href="#" class="btn primary">Start intake / aanmelden</a>
+            <a href="#" class="btn secondary">Kom op de wachtlijst</a>
+          </div>
+        </div>
+        <div class="form-mock">
+          <div class="field">Naam speler</div>
+          <div class="field">Leeftijd / club / niveau</div>
+          <div class="field">Doel voor deze zomer</div>
+          <div class="field">Pakket keuze of intake advies</div>
+          <div class="field">Telefoon / e-mail</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">08 • Design richting</div>
+          <h2>Merkstijl en uitstraling</h2>
+        </div>
+        <p class="muted">Professioneel, premium en high performance met zwart als basis en een Nike Performance gevoel.</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>Visuele richting</h3>
+          <ul class="list">
+            <li>High performance uitstraling</li>
+            <li>Zwarte premium basis</li>
+            <li>Combinatie van professioneel en sportief</li>
+            <li>Inspiratie uit performance-gedreven platforms</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Website keuzes</h3>
+          <ul class="list">
+            <li>Taal: Nederlands</li>
+            <li>Mobile first belangrijk</li>
+            <li>SEO moet sterk zijn en goed vindbaar maken</li>
+            <li>Geen blog, wel focus op conversie en merkpositie</li>
+          </ul>
+        </article>
       </div>
     </div>
   </section>
@@ -886,8 +965,8 @@
     <div class="container">
       <div class="divider"></div>
       <div class="footer-inner">
-        <span>SEM Elite Performance — Website Analyse HTML</span>
-        <span>Design direction: dark, premium, performance-led</span>
+        <span>SEM Elite Performance</span>
+        <span>Elite Off Season Performance Kamp • Breda / Oosterhout</span>
       </div>
     </div>
   </footer>
